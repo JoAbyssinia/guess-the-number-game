@@ -7,19 +7,25 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--    Autowiring beans-->
-    <context:annotation-config/>
-    <bean id="numberGenerator" class="acadamy.learnprogramming.NumberGeneratorImpl"/>
+    <!--    this is implicitly adding context base annotation config-->
+    <context:component-scan base-package="acadamy.learnprogramming"/>
 
-    <bean id="game" class="acadamy.learnprogramming.GameImpl">
-        <!--    constructor based dependency injection-->
-        <!--        <constructor-arg ref="numberGenerator"/>-->
 
-        <!--        setter based dependency injection -->
-        <!--        the name has to be similar to the variable name of in class (property)-->
-        <!--        ref is the reference of the class in beans-->
-        <!--        <property name="numberGenerator" ref="numberGenerator"/>-->
-    </bean>
+
+
+    <!--    Autowiring beans // context annotation config tag -->
+    <!--    <context:annotation-config/>-->
+    <!--    <bean id="numberGenerator" class="acadamy.learnprogramming.NumberGeneratorImpl"/>-->
+
+    <!--    <bean id="game" class="acadamy.learnprogramming.GameImpl">-->
+    <!--    constructor based dependency injection-->
+    <!--        <constructor-arg ref="numberGenerator"/>-->
+
+    <!--        setter based dependency injection -->
+    <!--        the name has to be similar to the variable name of in class (property)-->
+    <!--        ref is the reference of the class in beans-->
+    <!--        <property name="numberGenerator" ref="numberGenerator"/>-->
+    <!--    </bean>-->
 
     <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
