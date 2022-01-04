@@ -11,16 +11,29 @@ public class NumberGeneratorImpl implements NumberGenerator {
     private final Random random = new Random();
 
     @Autowired
+    @MinNumber
+    private int minNumber;
+
+    @Autowired
+    @MaxNumber
     private int maxNumber;
 
     //== public method ==
     @Override
     public int next() {
-        return random.nextInt(maxNumber);
+// example: min= 5 max=20 -> max-min=15 range 0 - 15 + min -> 5 - 20
+        return random.nextInt(maxNumber-minNumber) +minNumber;
     }
 
     @Override
     public int getMaxNumber() {
         return maxNumber;
     }
+
+    @Override
+    public int getMinNumber() {
+        return minNumber;
+    }
+
+
 }
