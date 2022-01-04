@@ -12,7 +12,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
 
     @Autowired
     private Game game;
-    private static int guessCount = 10;
+    private static final int guessCount = 10;
 
 
     //    init
@@ -41,9 +41,9 @@ public class MessageGeneratorImpl implements MessageGenerator {
         } else {
             String direction = "Lower";
             if (game.getGuess() < game.getNumber()) {
-                return direction = "higher";
+                direction = "higher";
             }
-            return direction + "! You have " + game.getRemainingGuess() + "guess left";
+            return direction + "! You have " + game.getRemainingGuess() + " guesses left";
         }
     }
 
