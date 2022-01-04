@@ -20,12 +20,16 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
-
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/../libs/lombok.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <properties>

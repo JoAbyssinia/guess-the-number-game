@@ -1,34 +1,42 @@
 package acadamy.learnprogramming;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+
+@Slf4j
+@Getter
 @Component
 public class GameImpl implements Game {
 
-    //    == constants ==
-    private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
-
     //    == fields
-    private  final NumberGenerator numberGenerator;
+    @Getter(AccessLevel.NONE)
+    private final NumberGenerator numberGenerator;
     private final int guessCount;
     private int number;
-    private int guess;
-
     private int smallest;
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
+    @Setter
+    private int guess;
 
-//    constructor
+    //    constructor
     @Autowired
-    public GameImpl(NumberGenerator numberGenerator,  @GuessCount int guessCount) {
+    public GameImpl(NumberGenerator numberGenerator, @GuessCount int guessCount) {
         this.numberGenerator = numberGenerator;
         this.guessCount = guessCount;
+    }
+
+    @Override
+    public int getRemainingGuess() {
+        return remainingGuesses;
     }
 
     //    == init ==
@@ -48,51 +56,6 @@ public class GameImpl implements Game {
         log.info("in game preDestroy()");
     }
 
-    //    == constructors == this is for constructor base dependency injection
-   /* public GameImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-    } */
-
-//    setter for constructor based injection.
-//    public void setNumberGenerator(NumberGenerator numberGenerator) {
-//        this.numberGenerator = numberGenerator;
-//    }
-
-    @Override
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public int getGuess() {
-        return guess;
-    }
-
-    @Override
-    public void setGuess(int guess) {
-        this.guess = guess;
-    }
-
-    @Override
-    public int getSmallest() {
-        return smallest;
-    }
-
-    @Override
-    public int getBiggest() {
-        return biggest;
-    }
-
-    @Override
-    public int getRemainingGuess() {
-        return remainingGuesses;
-    }
-
-    @Override
-    public int getGuessCount() {
-        return guessCount;
-    }
-
     @Override
     public void check() {
         checkValidNumber();
@@ -104,11 +67,6 @@ public class GameImpl implements Game {
             }
         }
         remainingGuesses--;
-    }
-
-    @Override
-    public boolean isValidNumberRange() {
-        return validNumberRange;
     }
 
     @Override

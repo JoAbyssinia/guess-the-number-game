@@ -2,21 +2,21 @@ package acadamy.learnprogramming.console;
 
 import acadamy.learnprogramming.Game;
 import acadamy.learnprogramming.MessageGenerator;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
-
+@Slf4j
 @Component
 public class ConsoleNumberGuess {
 
 //    == constant section ==
 
-    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
+//    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
     //    fields
 
