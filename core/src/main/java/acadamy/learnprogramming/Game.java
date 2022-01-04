@@ -1,5 +1,8 @@
 package acadamy.learnprogramming;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface Game {
     int getNumber();
     int getGuess();
@@ -7,6 +10,7 @@ public interface Game {
     int getSmallest();
     int getBiggest();
     int getRemainingGuess();
+    int getGuessCount();
     void reset();
     void check();
     boolean isValidNumberRange();
