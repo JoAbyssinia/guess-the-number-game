@@ -1,5 +1,8 @@
 package acadamy.learnprogramming;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface Game {
     int getNumber();
     int getGuess();

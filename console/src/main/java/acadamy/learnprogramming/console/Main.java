@@ -1,9 +1,6 @@
 package acadamy.learnprogramming.console;
 
-import acadamy.learnprogramming.config.AppConfig;
-import acadamy.learnprogramming.Game;
-import acadamy.learnprogramming.MessageGenerator;
-import acadamy.learnprogramming.NumberGenerator;
+import acadamy.learnprogramming.config.GameConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,26 +15,7 @@ public class Main {
         log.debug("Log debug");
 
         //create context (container)
-        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-//        get number generator bean from context (container)
-        NumberGenerator numberGenerator = context.getBean(NumberGenerator.class);
-
-        //call method next() to get a random number;
-        int number = numberGenerator.next();
-        int maxNumber = numberGenerator.getMaxNumber();
-
-        //log generated number
-        log.info("number = {}", number);
-        log.info("max Number = {}", maxNumber);
-
-        // get game bean from context (container)
-        Game game = context.getBean(Game.class);
-
-//        get message generator context from bean
-        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
-        log.info("getMainMessage = {}", messageGenerator.getMainMessage());
-        log.info("getResultMessage = {}", messageGenerator.getResultMessage());
-
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
         //close context (container)
         context.close();
     }
