@@ -23,7 +23,8 @@ public class MessageGeneratorImpl implements MessageGenerator {
     // pubic methods
     @Override
     public String getMainMessage() {
-        return "Number is between " + game.getSmallest() + " and " + game.getBiggest() + ". can you guess it?";
+        return "Number is between " + game.getSmallest() + " and " +
+                game.getBiggest() + ". can you guess it?";
     }
 
     @Override
