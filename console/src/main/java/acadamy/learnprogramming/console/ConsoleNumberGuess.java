@@ -13,13 +13,7 @@ import java.util.Scanner;
 @Slf4j
 @Component
 public class ConsoleNumberGuess {
-
-//    == constant section ==
-
-//    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
-
     //    fields
-
     private final Game game;
     private final MessageGenerator messageGenerator;
 
@@ -33,7 +27,6 @@ public class ConsoleNumberGuess {
     @EventListener(ContextRefreshedEvent.class)
     public void start() {
         log.info("start() --> Container ready for use");
-
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
