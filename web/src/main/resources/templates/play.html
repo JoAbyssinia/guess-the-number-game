@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>guess the number Game</title>
+</head>
+<body>
+    <div align="center" >
+        <h1> Guess the Number Game </h1>
+
+
+    <h3 th:text="${mainMessage}"> Main Message Content </h3>
+    <h3 th:text="${resultMessage}"> Result Message Content </h3>
+    <form action="play" method="post">
+        <label for="guess"> Enter your guess </label>
+        <input id="guess" type="number" name="guess">
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <footer>
+        <p>
+        Create ty yohannes k yimam for learning purser
+        </p>
+    </footer>
+    </div>
+
+</body>
+</html>
